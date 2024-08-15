@@ -1,46 +1,34 @@
-let cor;
-let circuloX; // horizontal
-let circuloY; // vertical
+let palavra;
 
 function setup() {
-  createCanvas(400, 400); // width x height
-  background(color(100,0,0));
-  cor = color(random(0,255), random(0,255), random(0,255));
-  circuloX = [0,0,0];
-  circuloY = [random(height), random(height), random(height)];
+  createCanvas(600, 600);
+
+  palavra = palavraAleatoria();
+  
 }
 
-// circuloX = 0,0,0  
-// circuloY = 300, 150 , 150
+function palavraAleatoria() {
+  
+  let palavras = ["Weslley imperador pra vc tá?", "Chora invejosa(o)", "Mi amore"];
+  
+  return random(palavras);
+}
 
-
-
+function inicializaCores() {
+  
+  background("royalblue");
+  fill("whith");
+  textFont("Poetsen One");
+  textSize(64);
+  textAlign(CENTER, CENTER);
+}
 
 function draw() {
   
-  fill(cor);
+  inicializaCores();
+
+  let maximo = width;
+  let minimo = 0;
+  // mouseX, 0, width ==> 0, palavra.length
   
-  //console.log (circuloX.length)
-  
-  for (let contador in circuloX) {
-    // console.log (contador)
-  circle(circuloX[contador], circuloY[contador], 50);  
-  circuloX[contador] += random (0,3);
-  circuloY[contador] += random (-3,3);
-    
-    if (circuloX[contador] >= width){
-      circuloX[contador] = 0;
-      circuloY[contador] = random(height);
-    }
-   
-  }
- 
-  
-  
-  
-  
-  if (mouseIsPressed){
-    cor = color(random(0,255), random(0,255), random(0,255), random(0,100));
-  }
-    
 }
